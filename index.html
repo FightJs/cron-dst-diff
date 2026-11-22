@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="在浏览器中对照 cron-parser 与 Croner 的夏令时触发时刻。">
+  <title>Cron 夏令时差异</title>
+</head>
+<body>
+  <header><div class="shell brand"><span aria-hidden="true">◷</span> Cron DST Diff</div></header>
+  <main class="shell">
+    <section class="intro" aria-labelledby="title">
+      <h1 id="title">Cron 夏令时差异</h1>
+      <p>用同一个表达式和时区，对照两个引擎计算出的触发时刻。</p>
+    </section>
+    <div class="workspace">
+      <section class="inputs" aria-labelledby="input-title">
+        <h2 id="input-title">比较参数</h2>
+        <div class="examples" aria-label="示例">
+          <button type="button" data-example="fall">秋季回拨</button>
+          <button type="button" data-example="spring">春季跳时</button>
+          <button type="button" data-example="ordinary">普通日</button>
+        </div>
+        <form id="compare">
+          <label>Cron 表达式<input name="expression" spellcheck="false" required maxlength="256"></label>
+          <label>时区<select name="zone"><option>Europe/Luxembourg</option><option>America/New_York</option></select></label>
+          <label>起点（不含）<input name="start" spellcheck="false" required maxlength="35"></label>
+          <label>终点（含）<input name="end" spellcheck="false" required maxlength="35"></label>
+          <p class="hint">选择 2026 年内的窗口，起止时刻须带 Z 或 UTC 偏移。</p>
+          <button class="primary" type="submit">比较触发时刻 <span aria-hidden="true">→</span></button>
+        </form>
+      </section>
+      <section class="results" aria-labelledby="result-title">
+        <div class="result-head">
+          <div><h2 id="result-title">触发时间线</h2><p class="hint" id="versions"></p></div>
+          <div class="actions"><button id="share" disabled>复制链接</button><button id="download" disabled>下载 JSON</button></div>
+        </div>
+        <p id="status" role="status"></p>
+        <div class="table-scroll" tabindex="0" aria-label="UTC 触发时刻对照" hidden>
+          <table>
+            <thead><tr><th scope="col">本地时刻 / 偏移</th><th scope="col">UTC 时刻</th><th scope="col">触发引擎</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="hint scope">结果基于当前浏览器的时区数据和所选窗口。分享链接会在接收方浏览器重新计算。</p>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
