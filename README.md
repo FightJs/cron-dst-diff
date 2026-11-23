@@ -4,13 +4,15 @@
 
 适合准备更换 JavaScript Cron 库、复核定时任务的迁移结果，或向团队解释为什么日志里的两个 `02:30` 相隔整整一小时。
 
-[快速开始](#快速开始) · [复现秋季回拨](#复现秋季回拨) · [输入范围](#输入范围) · [分享与复验](#分享与复验)
+[在线体验](https://fightjs.github.io/cron-dst-diff/) · [快速开始](#快速开始) · [复现秋季回拨](#复现秋季回拨) · [输入范围](#输入范围) · [分享与复验](#分享与复验)
 
 ![秋季回拨时间线。两个引擎共有 00:30Z 和 13:30Z，只有 Croner 列出 01:30Z](docs/fall-chromium.png)
 
 ## 快速开始
 
-需要 Git 和 Node.js 20.19+（20.x）或 22.12+。
+直接打开[在线演示](https://fightjs.github.io/cron-dst-diff/)即可体验。
+
+本地运行需要 Git 和 Node.js 20.19+（20.x）或 22.12+。
 
 ```sh
 git clone https://github.com/FightJs/cron-dst-diff.git
